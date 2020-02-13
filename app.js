@@ -18,11 +18,6 @@ connection.connect(function(err) {
     // });
 });
   
-//--close DB
-// connection.end((err)=>{
-//     if (err) throw err;
-//     console.log('Closed !!!');
-// });
 
 //---Query -- Insert
 // const author = { name: 'Craig Buckler', city: 'Exmouth' };
@@ -62,4 +57,10 @@ connection.query(
       console.log(`Deleted ${result.affectedRows} row(s)`);
     }
   );
+
+  //--close DB
+connection.end((err)=>{
+    if (err) throw err;
+    console.log('Closed !!!');
+});
   
