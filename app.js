@@ -43,14 +43,23 @@ connection.connect(function(err) {
 //         console.log(`${row.name} lives in ${row.city}`);
 //       });
 //   });
-//--Query -- Update
+
+// //--Query -- Update
+// connection.query(
+//     'UPDATE authors SET name = ? Where ID = ?',
+//     ['sitePoint', 6],
+//     (err, result) => {
+//       if (err) throw err;
+  
+//       console.log(`Changed ${result.changedRows} row(s)`);
+//     }
+//   );
+
 connection.query(
-    'UPDATE authors SET name = ? Where ID = ?',
-    ['sitePoint', 6],
-    (err, result) => {
+    'DELETE FROM authors WHERE id = ?', [7], (err, result) => {
       if (err) throw err;
   
-      console.log(`Changed ${result.changedRows} row(s)`);
+      console.log(`Deleted ${result.affectedRows} row(s)`);
     }
   );
   
