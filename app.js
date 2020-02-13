@@ -25,11 +25,23 @@ connection.connect(function(err) {
 // });
 
 //---Query -- Insert
-const author = { name: 'Craig Buckler', city: 'Exmouth' };
-connection.query('INSERT INTO authors SET ?', author, (err, res) => {
-  if(err) throw err;
+// const author = { name: 'Craig Buckler', city: 'Exmouth' };
+// connection.query('INSERT INTO authors SET ?', author, (err, res) => {
+//   if(err) throw err;
 
-  console.log('Last insert ID:', res.insertId);
-});
+//   console.log('Last insert ID:', res.insertId);
+// });
+
+//Query -- Select -views
+connection.query('SELECT * FROM authors', (err,rows) => {
+    if(err) throw err;
+  
+    console.log('Data received from DB:');
+    console.log(rows);
+    //--Trả DB qua vong lap theo gia tri
+    rows.forEach( (row) => {
+        console.log(`${row.name} lives in ${row.city}`);
+      });
+  });
 
   
