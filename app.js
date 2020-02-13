@@ -33,15 +33,24 @@ connection.connect(function(err) {
 // });
 
 //Query -- Select -views
-connection.query('SELECT * FROM authors', (err,rows) => {
-    if(err) throw err;
+// connection.query('SELECT * FROM authors', (err,rows) => {
+//     if(err) throw err;
   
-    console.log('Data received from DB:');
-    console.log(rows);
-    //--Trả DB qua vong lap theo gia tri
-    rows.forEach( (row) => {
-        console.log(`${row.name} lives in ${row.city}`);
-      });
-  });
-
+//     console.log('Data received from DB:');
+//     console.log(rows);
+//     //--Trả DB qua vong lap theo gia tri
+//     rows.forEach( (row) => {
+//         console.log(`${row.name} lives in ${row.city}`);
+//       });
+//   });
+//--Query -- Update
+connection.query(
+    'UPDATE authors SET name = ? Where ID = ?',
+    ['sitePoint', 6],
+    (err, result) => {
+      if (err) throw err;
+  
+      console.log(`Changed ${result.changedRows} row(s)`);
+    }
+  );
   
