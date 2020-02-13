@@ -50,13 +50,13 @@ connection.connect(function(err) {
 //     }
 //   );
 
-connection.query(
-    'DELETE FROM authors WHERE id = ?', [7], (err, result) => {
-      if (err) throw err;
+// connection.query(
+//     'DELETE FROM authors WHERE id = ?', [7], (err, result) => {
+//       if (err) throw err;
   
-      console.log(`Deleted ${result.affectedRows} row(s)`);
-    }
-  );
+//       console.log(`Deleted ${result.affectedRows} row(s)`);
+//     }
+//   );
 
   //--close DB
 connection.end((err)=>{
