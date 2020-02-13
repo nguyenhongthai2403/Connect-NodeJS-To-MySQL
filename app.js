@@ -12,7 +12,6 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
     //----create DATABASE db_ecommerce
-    
     // //connection.query("CREATE DATABASE db_ecommerce",(err, result) => {
     //   if (err) throw err;
     //   console.log("Database created successfully");
@@ -24,5 +23,13 @@ connection.connect(function(err) {
 //     if (err) throw err;
 //     console.log('Closed !!!');
 // });
+
+//---Query -- Insert
+const author = { name: 'Craig Buckler', city: 'Exmouth' };
+connection.query('INSERT INTO authors SET ?', author, (err, res) => {
+  if(err) throw err;
+
+  console.log('Last insert ID:', res.insertId);
+});
 
   
